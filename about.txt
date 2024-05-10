@@ -1,0 +1,24 @@
+
+======================================================================
+======================================================================
+ Welcome to the Python Debugging Information Utility ABOUT.PY
+ Date and Time: 2024-05-10 at 09:58 AM
+ Operating System: posix Darwin 20.6.0
+ System Architecture: 64bit
+ Number of CPUs: 4
+ Machine Type: x86_64
+ Python Version: 3.11.4
+ Python Build Date and Compiler: v3.11.4:d2340ef257 with Jun  6 2023 19:15:51
+ Python Implementation: CPython
+ Active pip environment: None
+ Path to Interpreter:         /Library/Frameworks/Python.framework/Versions/3.11/bin/python3
+ Path to virtual environment: /Library/Frameworks/Python.framework/Versions/3.11
+ Current Working Directory:   /Users/jakerood/streaming-02-multiple-processes
+ Path to source directory:    /Users/jakerood/streaming-02-multiple-processes
+ Path to script file:         /Users/jakerood/streaming-02-multiple-processes/about.py
+ User's Home Directory:       /Users/jakerood
+ Terminal Environment:        VS Code
+ Terminal Type:               zsh
+ Git available in PATH:       True 
+======================================================================
+======================================================================
