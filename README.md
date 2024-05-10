@@ -128,11 +128,11 @@ python3 process_streaming_jakerood.py
 
 Now it's time to get the local work you did on your machine back up to your cloud repo in GitHub:
 
-1. On the VS Code side panel, click the source control icon (look for a blue bubble with an number in it).
+1. On the VS Code side panel, click the source control icon (look for a blue bubble with a number in it).
 1. Important! Above the Commit button, it will say "Message".
 1. You MUST include a commit message.
 1. Click the down arrow on the blue "Commit" button to "Commit and Push" to your GitHub repo.
 
-Verify: Open a browser to your GitHub repo and verify the files have appeared.
+Verify: Open a browser to your GitHub repo and verify the changes have appeared.
 
 Note: You can either sync all your changes at once at the end of the project **OR** you can sync your changes after completing each task individually.
