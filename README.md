@@ -1,13 +1,18 @@
 # streaming-02-multiple-processes
+Name: Jake Rood
+
+Date: 05-10-2024
 
 > Multiple processes accessing a shared resource concurrently
 
 ## Overview
 
-This example starts a shared database and multiple processes.
+In this project:
 
-The processes represent multiple users, or locations, or programs 
-hitting a shared database at the same time. 
+1. You'll review how one multiprocessing example behaves when tasks are quick and sharing goes well (generally).
+1. You'll change to using longer-running concurrent tasks and explore what happens.
+1. You'll implement a scaffolded process that streams from a csv file. 
+1. You'll write your own streaming process that reads from a unique csv data source of your choice.
 
 ## Prerequisites
 
@@ -16,127 +21,118 @@ hitting a shared database at the same time.
 1. VS Code Editor
 1. VS Code Extension: Python (by Microsoft)
 
-## Task 1. Fork 
+## Set Up Repository
+Perform the following tasks to correctly set up your repository:
 
-Fork this repository ("repo") into **your** GitHub account. 
+### Fork 
 
-## Task 2. Clone
+Fork this [repository](https://github.com/denisecase/streaming-02-multiple-processes) ("repo") into **your own** GitHub account. 
+
+### Clone
 
 Clone **your** new GitHub repo down to the Documents folder on your local machine. 
 
-## Task 3. Explore
+### Execute About Script
 
-Explore your new project repo in VS Code on your local machine.
+Execute about.py to generate information about your local machine and Python setup.
 
-## Task 4. Execute Check Script
+```shell
+python3 about.py
+```
+
+The resulting information should write to about.txt
+
+### Execute Check Script
 
 Execute 00_check_core.py to generate useful information.
 
-## Task 5. Execute Multiple Processes Project Script
+```shell
+python3 00_check_core.py
+```
+
+The resulting information should write to 00_report_core.txt
+
+## Task 1. Execute Multiple Processes Project Script (quick processes)
+
+Open the multiple_processes.py file.
+
+Set TASK_DURATION_SECONDS to 0.
 
 Execute multiple_processes.py.
 
-Read the output. Read the code. 
-Try to figure out what's going on. 
+```shell
+python3 multiple_processes.py
+```
 
-1. What libraries did we import?
-1. Where do we set the TASK_DURATION_SECONDS?
-1. How many functions are defined? 
-1. What are the function names? 
-1. In general, what does each function do? 
-1. Where does the execution begin? Hint: generally at the end of the file.
-1. How many processes do we start?
-1. How many records does each process insert?
+Use out0.txt to document the results after running the script.
+Paste all of the terminal contents into the output file.
 
-In this first run, we start 3 processes, 
-each inserting 2 records into a shared database 
-(for a total of 6 records inserted.)
-
-In each case, the process gets a connection to the database, 
-and a cursor to execute SQL statements.
-It inserts a record, and exits the database quickly.
-
-In general, we're successful and six new records get inserted. 
-
-## Task 6. Execute Multiple Processes Script with Longer Tasks
-
-For the second run, modify the task duration to make each task take 3 seconds. 
-Hint: Look for the TODO.
-Run the script again. 
-With the longer tasks, we now get into trouble - 
-one process will have the database open and be working on it - 
-then when another process tries to do the same, it can't and 
-we end up with errors. 
-
-## Task 7. Document Results After Each Run
-
-To clear the terminal, in the terminal window, type clear and hit enter or return. 
-
-`clear`
-
-To document results, clear the terminal, run the script, and paste all of the terminal contents into the output file.
-
-Use out0.txt to document the first run. 
-
-Use out3.txt to document the second run.
-
-
------
-
-## Helpful Information
-
-To get more help on the early tasks, see [streaming-01-getting-started](https://github.com/denisecase/streaming-01-getting-started).
-
-### Select All, Copy, Paste
-
-On Windows the select all, copy, paste hotkeys are:
-
-- CTRL a 
-- CTRL c 
-- CTRL v 
-
-On a Mac the select all, copy, paste hotkeys are:
+Use the following hotkeys to select all, copy, and paste:
 
 - Command a
 - Command c
 - Command v
 
-Detailed copy/paste instructions (as needed)
+## Task 2. Execute Multiple Processes Script with Longer Tasks
 
-1. To use these keys to transfer your output into a file, 
-clear the terminal, run the script, then click in the terminal to make it active.
-1. To select all terminal content, hold CTRL and the 'a' key together. 
-1. To copy the selected content, hold CTRL and the 'c' key together. 
-1. To paste, open the destination file (e.g. out0.py) for editing.
-1. Click somewhere in the destination file to make it the active window.
-1. Now hit CTRL a (both together) to select all of the destination file.
-1. Hit CTRL v (both together) to paste the content from your clipboard.
+For the second run, modify the task duration to make each task take 3 seconds.
 
-Do a web search to find helpful videos on anything that seems confusing
-and share them in our discussion.
+First, clear the terminal in the terminal window by typing clear and hitting return.
 
-### Reading Error Messages
+`clear`
 
-Python has pretty helpful error messages. 
-When you get an error, read them carefully. 
+Set TASK_DURATION_SECONDS to 3.
 
-- What error do you get?
+Run the script again.
 
-### Database Is Locked Error
+```shell
+python3 multiple_processes.py
+```
 
-Do a web search on the sqlite3 'database is locked' error.
+Use out3.txt to document the results after running the script.
+Paste all of the terminal contents into the output file.
 
-- What do you learn?
-- Once a process fails, it crashes the main process and everything stops. 
+## Task 3. Stream Processing Example
 
-### Deadlock
+Simulate a stream processing example.
 
-Deadlock is a special kind of locking issue where a process 
-is waiting on a resource or process, that is waiting also. 
+Copy process_streaming_0.py from the [Module 1 repository](https://github.com/jakerood/streaming-01-getting-started).
 
-Rather than crashing, a system in deadlock may wait indefinitely, 
-with no process able to move forward and make progress.
+Copy the batchfile_0_farenheit.csv file from the same repository.
 
-### Learn More
+Run the script.
 
-Check out Wikipedia's article on deadlock and other sources to learn how to prevent and avoid locking issues in concurrent processes. 
+```shell
+python3 process_streaming_0.py
+```
+
+The streaming process will run continuously for quite a while. Use CTRL-c to stop the process.
+
+## Task 4. Custom Stream from CSV Script
+
+Stream your own unique CSV data by modifying the example approach provided.
+
+Create a new Python script in the repository called process_streaming_jakerood.py (Replace "jakerood" with your own name).
+
+Create a new CSV file in the repository. In this case, we will use the CSV file provided in the [Microsoft Corporation Stock Price Dataset](https://www.kaggle.com/datasets/olegshpagin/microsoft-corporation-stock-price-dataset?select=H1)
+
+Stream from the CSV file into a new file named out9.txt
+
+Execute the script to perform the custom streaming process and write to the output file.
+
+```shell
+python3 process_streaming_jakerood.py
+```
+
+## Sync Changes to GitHub
+
+Now it's time to get the local work you did on your machine back up to your cloud repo in GitHub:
+
+1. On the VS Code side panel, click the source control icon (look for a blue bubble with an number in it).
+1. Important! Above the Commit button, it will say "Message".
+1. You MUST include a commit message.
+1. Click the down arrow on the blue "Commit" button to "Commit and Push" to your GitHub repo.
+
+Verify: Open a browser to your GitHub repo and verify the files have appeared.
+
+Note: You can either sync all your changes at once at the end of the project **OR** you can sync your changes after completing each task individually.
